@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">MyTobolsk</string>
+    <string name="app_name">Мой Тобольск</string>
+    <string name="events">Мероприятия</string>
+    <string name="routes">Маршруты</string>
+    <string name="interests_places">Интересные места</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
 </resources>

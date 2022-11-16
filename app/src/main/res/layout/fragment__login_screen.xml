@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginHorizontal="@dimen/medium_indent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Твой Тобольск"
+        android:textSize="32sp"
+        android:fontFamily="@font/open_sans_bold"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/large_indent"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans"
+        android:layout_marginTop="@dimen/medium_indent"
+        android:layout_marginHorizontal="@dimen/medium_indent"
+        android:text="Войди, чтобы пользоваться всеми возможностями Тобольска!"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans"
+        android:layout_marginTop="@dimen/medium_indent"
+        android:layout_marginHorizontal="@dimen/medium_indent"
+        android:text="Если аккаунта ещё нет, то он автоматически создастся"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="@dimen/large_indent"
+        android:hint="@string/login"
+        app:errorEnabled="true"
+        android:layout_marginHorizontal="@dimen/medium_indent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:hint="@string/password"
+        app:errorEnabled="true"
+        android:layout_marginHorizontal="@dimen/medium_indent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:text="Продолжить"
+        android:layout_margin="@dimen/medium_indent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

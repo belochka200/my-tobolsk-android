@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainScreen">
+
+    <fragment
+        tools:layout="@layout/fragment__main_screen"
+        android:id="@+id/mainScreen"
+        android:name="com.example.mytobolsk.ui.screens.MainScreen"
+        android:label="MainScreen" >
+        <action
+            android:id="@+id/action_mainScreen_to_loginScreen"
+            app:destination="@id/loginScreen" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment__login_screen"
+        android:id="@+id/loginScreen"
+        android:name="com.example.mytobolsk.ui.screens.LoginScreen"
+        android:label="LoginScreen" />
+</navigation>
