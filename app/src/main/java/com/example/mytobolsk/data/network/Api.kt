@@ -2,6 +2,7 @@ package com.example.mytobolsk.data.network
 
 import com.example.mytobolsk.data.models.Event
 import com.example.mytobolsk.data.models.Story
+import com.google.firebase.database.FirebaseDatabase
 
 interface Api {
     suspend fun getAllEvent(): List<Event>
@@ -10,6 +11,8 @@ interface Api {
 
 class ApiImpl : Api {
     override suspend fun getAllEvent(): List<Event> {
+//        val database = FirebaseDatabase.getInstance().reference
+//        database.child("routes").get().addOnSuccessListener {}
         return listOf(
             Event(1, "Мероприятие 1")
         )

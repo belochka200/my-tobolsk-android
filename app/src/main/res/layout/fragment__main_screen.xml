@@ -20,11 +20,13 @@
         style="@style/heading" />
 
     <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/item__story_item"
         android:id="@+id/recycler_view__stories"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="250dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/large_indent"/>
 
     <TextView
         android:id="@+id/heading_events"

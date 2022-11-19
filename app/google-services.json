@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "489571272081",
+    "firebase_url": "https://livetob-9e484-default-rtdb.firebaseio.com",
+    "project_id": "livetob-9e484",
+    "storage_bucket": "livetob-9e484.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489571272081:android:f7e0b9e8c8862f7e9dc630",
+        "android_client_info": {
+          "package_name": "com.example.livetob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489571272081-hvpdvl1affn32cvlsihf94bnqd9iggsr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVsEJ51C4MRHWriDWU44VOOW9a9WuZa8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489571272081-hvpdvl1affn32cvlsihf94bnqd9iggsr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489571272081:android:e9932826a09a82b29dc630",
+        "android_client_info": {
+          "package_name": "com.example.mytobolsk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489571272081-hvpdvl1affn32cvlsihf94bnqd9iggsr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVsEJ51C4MRHWriDWU44VOOW9a9WuZa8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489571272081-hvpdvl1affn32cvlsihf94bnqd9iggsr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

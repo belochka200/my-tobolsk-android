@@ -6,4 +6,6 @@
     <string name="login">Логин</string>
     <string name="password">Пароль</string>
     <string name="useful">Полезное</string>
+    <string name="for_you">Для тебя</string>
+    <string name="account">Аккаунт</string>
 </resources>

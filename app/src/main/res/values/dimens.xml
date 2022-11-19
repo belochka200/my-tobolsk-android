@@ -4,4 +4,5 @@
     <dimen name="medium_large_indent">24dp</dimen>
     <dimen name="medium_indent">16dp</dimen>
     <dimen name="small_indent">16dp</dimen>
+    <dimen name="very_small_indent">8dp</dimen>
 </resources>
