@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_item__notification"
+        app:showAsAction="ifRoom"
+        android:title="@string/notification"
+        android:icon="@drawable/ic_round_notifications_24" />
+    <item
+        android:id="@+id/menu_item__profile"
+        app:showAsAction="always"
+        android:title="@string/account"
+        android:icon="@drawable/ic_round_account_circle_24"/>
+</menu>

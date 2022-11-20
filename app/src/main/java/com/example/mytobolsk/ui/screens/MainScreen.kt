@@ -9,12 +9,15 @@ import androidx.fragment.app.viewModels
 import com.example.mytobolsk.R
 import com.example.mytobolsk.databinding.FragmentMainScreenBinding
 import com.example.mytobolsk.ui.adapters.StoriesAdapter
+import com.example.mytobolsk.ui.models.Route
 import com.example.mytobolsk.ui.models.Story
 import com.example.mytobolsk.ui.states.MainScreenUiState
 import com.example.mytobolsk.ui.viewmodels.MainScreenViewModel
 
 class MainScreen : Fragment(R.layout.fragment__main_screen) {
+
     private lateinit var binding: FragmentMainScreenBinding
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val viewModel: MainScreenViewModel by viewModels()
@@ -22,16 +25,28 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
 
         viewModel.uiState.observe(viewLifecycleOwner) { newState ->
             when (newState) {
-                MainScreenUiState.Error ->Toast.makeText(
+                MainScreenUiState.Error -> Toast.makeText(
                     requireContext(), "Ошибка загрузки", Toast.LENGTH_LONG
                 ).show()
-                MainScreenUiState.Loading -> showContent(false)
-                is MainScreenUiState.Content -> showContent(true, newState.stories)
+                MainScreenUiState.Loading -> showContent(
+                    show = false,
+                    stories = null,
+                    routes = null
+                )
+                is MainScreenUiState.Content -> showContent(
+                    show = true,
+                    stories = newState.stories,
+                    routes = newState.routes
+                )
             }
         }
     }
 
-    private fun showContent(show: Boolean, stories: List<Story>? = null) {
+    private fun showContent(
+        show: Boolean,
+        stories: List<Story>?,
+        routes: List<Route>?
+    ) {
         binding.apply {
             headingEvents.isVisible = show
             headingPlaces.isVisible = show

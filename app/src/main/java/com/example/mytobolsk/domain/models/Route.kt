@@ -1,5 +1,5 @@
 package com.example.mytobolsk.domain.models
 
-data class Event(
-    val title: String
+data class Route(
+    val title: String,
 )
