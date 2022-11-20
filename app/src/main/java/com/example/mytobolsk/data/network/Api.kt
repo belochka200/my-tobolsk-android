@@ -1,8 +1,13 @@
 package com.example.mytobolsk.data.network
 
+import android.util.Log
 import com.example.mytobolsk.data.models.Event
 import com.example.mytobolsk.data.models.Route
 import com.example.mytobolsk.data.models.Story
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 interface Api {
     suspend fun getAllEvent(): List<Event>
@@ -28,17 +33,18 @@ class ApiImpl : Api {
     }
 
     override suspend fun getAllRoutes(): List<Route> {
-//        val database = FirebaseDatabase.getInstance().getReference("routes")
-//        val routesList: MutableList<Route> = mutableListOf()
-//        database.addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                for (route in snapshot.children) {
-//                    routesList.add(route.getValue(Route::class.java)!!)
-//                }
-//                Log.d("Response 1", routesList.toString())
-//            }
-//            override fun onCancelled(error: DatabaseError) {}
-//        })
+        val database = FirebaseDatabase.getInstance().getReference("routes")
+        val routesList: MutableList<Route> = mutableListOf()
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (route in snapshot.children) {
+                    routesList.add(route.getValue(Route::class.java)!!)
+                }
+                Log.d("Response 1", routesList.toString())
+            }
+            override fun onCancelled(error: DatabaseError) {}
+        })
+        Log.d("Response from firebase", routesList.toString())
 //        return routesList
         return listOf(
             Route("Маршрут номер 1")
