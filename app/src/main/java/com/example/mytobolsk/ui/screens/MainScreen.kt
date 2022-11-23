@@ -1,11 +1,14 @@
 package com.example.mytobolsk.ui.screens
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.mytobolsk.R
 import com.example.mytobolsk.databinding.FragmentMainScreenBinding
 import com.example.mytobolsk.ui.adapters.StoriesAdapter
@@ -22,7 +25,6 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
         super.onViewCreated(view, savedInstanceState)
         val viewModel: MainScreenViewModel by viewModels()
         binding = FragmentMainScreenBinding.bind(view)
-
         viewModel.uiState.observe(viewLifecycleOwner) { newState ->
             when (newState) {
                 MainScreenUiState.Error -> Toast.makeText(

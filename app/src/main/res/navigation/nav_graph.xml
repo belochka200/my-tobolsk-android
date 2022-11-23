@@ -9,7 +9,7 @@
         tools:layout="@layout/fragment__main_screen"
         android:id="@+id/mainScreen"
         android:name="com.example.mytobolsk.ui.screens.MainScreen"
-        android:label="MainScreen" >
+        android:label="Твой Тобольск" >
         <action
             android:id="@+id/action_mainScreen_to_loginScreen"
             app:destination="@id/loginScreen" />
@@ -18,5 +18,5 @@
         tools:layout="@layout/fragment__login_screen"
         android:id="@+id/loginScreen"
         android:name="com.example.mytobolsk.ui.screens.LoginScreen"
-        android:label="LoginScreen" />
+        android:label="Аккаунт" />
 </navigation>

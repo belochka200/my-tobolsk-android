@@ -22,7 +22,7 @@
         <TextView
             android:id="@+id/heading_useful"
             android:text="@string/useful"
-            style="@style/heading" />
+            style="@style/headline" />
 
         <androidx.recyclerview.widget.RecyclerView
             tools:listitem="@layout/item__story_item"
@@ -36,7 +36,7 @@
         <TextView
             android:id="@+id/heading_events"
             android:text="@string/events"
-            style="@style/heading" />
+            style="@style/headline" />
 
         <androidx.recyclerview.widget.RecyclerView
             tools:listitem="@layout/item__story_item"
@@ -50,7 +50,7 @@
         <TextView
             android:id="@+id/heading_routes"
             android:text="@string/routes"
-            style="@style/heading" />
+            style="@style/headline" />
 
         <androidx.recyclerview.widget.RecyclerView
             tools:listitem="@layout/item__story_item"
@@ -64,7 +64,7 @@
         <TextView
             android:id="@+id/heading_places"
             android:text="@string/interests_places"
-            style="@style/heading" />
+            style="@style/headline" />
 
         <androidx.recyclerview.widget.RecyclerView
             tools:listitem="@layout/item__story_item"

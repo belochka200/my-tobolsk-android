@@ -33,19 +33,18 @@ class ApiImpl : Api {
     }
 
     override suspend fun getAllRoutes(): List<Route> {
-        val database = FirebaseDatabase.getInstance().getReference("routes")
-        val routesList: MutableList<Route> = mutableListOf()
-        database.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for (route in snapshot.children) {
-                    routesList.add(route.getValue(Route::class.java)!!)
-                }
-                Log.d("Response 1", routesList.toString())
-            }
-            override fun onCancelled(error: DatabaseError) {}
-        })
-        Log.d("Response from firebase", routesList.toString())
-//        return routesList
+//        val database = FirebaseDatabase.getInstance().getReference("routes")
+//        val routesList: MutableList<Route> = mutableListOf()
+//        database.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                for (route in snapshot.children) {
+//                    routesList.add(route.getValue(Route::class.java)!!)
+//                }
+//                Log.d("Response 1", routesList.toString())
+//            }
+//            override fun onCancelled(error: DatabaseError) {}
+//        })
+//        Log.d("Response from firebase", routesList.toString())
         return listOf(
             Route("Маршрут номер 1")
         )
