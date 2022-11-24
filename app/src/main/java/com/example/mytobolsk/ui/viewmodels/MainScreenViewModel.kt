@@ -9,6 +9,10 @@ import com.example.mytobolsk.ui.models.Event
 import com.example.mytobolsk.ui.models.Route
 import com.example.mytobolsk.ui.models.Story
 import com.example.mytobolsk.ui.states.MainScreenUiState
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
@@ -23,6 +27,7 @@ class MainScreenViewModel : ViewModel() {
     }
 
     private fun fetchData() {
+        val databaseReferenceRoutes = FirebaseDatabase.getInstance().getReference("routes")
         job?.cancel()
         job = viewModelScope.launch {
             try {
@@ -36,16 +41,38 @@ class MainScreenViewModel : ViewModel() {
                         title = it.title
                     )
                 }
-                val routes: List<Route> = LoadMainScreenImpl().getAllRoutes().map {
-                    Route(
-                        title = it.title
-                    )
-                }
-                _uiState.postValue(MainScreenUiState.Content(
-                    events = events,
-                    stories = stories,
-                    routes = routes
-                ))
+//                val routes: List<Route> = LoadMainScreenImpl().getAllRoutes().map {
+//                    Route(
+//                        title = it.title
+//                    )
+//                }
+
+                databaseReferenceRoutes.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val retrieveRoutesList: MutableList<com.example.mytobolsk.data.models.Route> =
+                            mutableListOf()
+                        (snapshot.children).forEach { route ->
+                            retrieveRoutesList.add(route.getValue(com.example.mytobolsk.data.models.Route::class.java)!!)
+                        }
+                        val routes: List<Route> = retrieveRoutesList.map {
+                            Route(
+                                title = it.title!!
+                            )
+                        }
+//                        _storiesListUpdated.value = routesList.map {
+//                            Route(
+//                                title = it.title!!
+//                            )
+//                        }
+                        _uiState.postValue(
+                            MainScreenUiState.Content(
+                                events = events, stories = stories, routes = routes
+                            )
+                        )
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {}
+                })
             } catch (_: Exception) {
                 _uiState.postValue(MainScreenUiState.Error)
             }

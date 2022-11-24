@@ -57,7 +57,7 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
 
             progressCircularBar.isVisible = !show
         }
-        if (show && stories != null)
-            binding.recyclerViewStories.adapter = StoriesAdapter(stories)
+        if (show && routes != null)
+            binding.recyclerViewStories.adapter = StoriesAdapter(routes)
     }
 }

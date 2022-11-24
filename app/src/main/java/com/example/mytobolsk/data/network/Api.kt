@@ -40,11 +40,9 @@ class ApiImpl : Api {
 //                for (route in snapshot.children) {
 //                    routesList.add(route.getValue(Route::class.java)!!)
 //                }
-//                Log.d("Response 1", routesList.toString())
 //            }
 //            override fun onCancelled(error: DatabaseError) {}
 //        })
-//        Log.d("Response from firebase", routesList.toString())
         return listOf(
             Route("Маршрут номер 1")
         )

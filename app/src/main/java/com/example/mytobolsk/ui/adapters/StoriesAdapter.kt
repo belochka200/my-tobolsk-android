@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mytobolsk.databinding.ItemStoryItemBinding
+import com.example.mytobolsk.ui.models.Route
 import com.example.mytobolsk.ui.models.Story
 
-class StoriesAdapter(private val storyDataSet: List<Story>) :
+class StoriesAdapter(private val storyDataSet: List<Route>) :
     RecyclerView.Adapter<StoriesAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemStoryItemBinding) :
