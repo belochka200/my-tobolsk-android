@@ -23,8 +23,10 @@ class EventsAdapter(private val eventsDataset: List<Event>) :
         with(holder) {
             with(eventsDataset[position]) {
                 binding.itemEventCardTitle.text = title
-                binding.itemEventCardPlace.text = holder.itemView.context.getString(R.string.`where`, place)
-                binding.itemEventCardTime.text = holder.itemView.context.getString(R.string.`when`, time)
+                binding.itemEventCardPlace.text =
+                    holder.itemView.context.getString(R.string.`where`, place)
+                binding.itemEventCardTime.text =
+                    holder.itemView.context.getString(R.string.`when`, date, time)
             }
         }
     }

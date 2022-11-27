@@ -8,4 +8,5 @@ data class Event(
     val time: String? = null,
     val place: String? = null,
     val date: String? = null,
+    val image: String? = null,
 )
