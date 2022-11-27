@@ -12,7 +12,11 @@
         android:label="Твой Тобольск" >
         <action
             android:id="@+id/action_mainScreen_to_loginScreen"
-            app:destination="@id/loginScreen" />
+            app:destination="@id/loginScreen"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment__login_screen"

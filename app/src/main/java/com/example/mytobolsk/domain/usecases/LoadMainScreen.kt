@@ -15,7 +15,9 @@ class LoadMainScreenImpl(private val api: ApiImpl = ApiImpl()) : LoadMainScreen 
     override suspend fun getAllEvents(): List<Event> {
         return api.getAllEvent().map {
             Event(
-                title = it.title!!
+                title = it.title!!,
+                time = it.time!!,
+                place = it.place!!
             )
         }
     }

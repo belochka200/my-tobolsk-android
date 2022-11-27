@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mytobolsk.domain.usecases.LoadMainScreenImpl
 import com.example.mytobolsk.ui.models.Event
 import com.example.mytobolsk.ui.models.Route
 import com.example.mytobolsk.ui.models.Story
@@ -15,6 +14,9 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import com.example.mytobolsk.data.models.Event as EventAsData
+import com.example.mytobolsk.data.models.Route as RouteAsData
+import com.example.mytobolsk.data.models.Story as StoryAsData
 
 class MainScreenViewModel : ViewModel() {
     private val _uiState = MutableLiveData<MainScreenUiState>(MainScreenUiState.Loading)
@@ -27,43 +29,51 @@ class MainScreenViewModel : ViewModel() {
     }
 
     private fun fetchData() {
-        val databaseReferenceRoutes = FirebaseDatabase.getInstance().getReference("routes")
+        val database = FirebaseDatabase.getInstance().reference
         job?.cancel()
         job = viewModelScope.launch {
             try {
-                val stories: List<Story> = LoadMainScreenImpl().getAllStories().map {
-                    Story(
-                        title = it.title
-                    )
-                }
-                val events: List<Event> = LoadMainScreenImpl().getAllEvents().map {
-                    Event(
-                        title = it.title
-                    )
-                }
-//                val routes: List<Route> = LoadMainScreenImpl().getAllRoutes().map {
-//                    Route(
-//                        title = it.title
-//                    )
-//                }
-
-                databaseReferenceRoutes.addValueEventListener(object : ValueEventListener {
+                database.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        val retrieveRoutesList: MutableList<com.example.mytobolsk.data.models.Route> =
-                            mutableListOf()
-                        (snapshot.children).forEach { route ->
-                            retrieveRoutesList.add(route.getValue(com.example.mytobolsk.data.models.Route::class.java)!!)
+                        val retrieveRoutesList: MutableList<RouteAsData> = mutableListOf()
+                        val retrieveStoriesList: MutableList<StoryAsData> = mutableListOf()
+                        val retrieveEventsList: MutableList<EventAsData> = mutableListOf()
+                        (snapshot.children).forEach {
+                            when (it.key) {
+                                "routes" -> {
+                                    it.children.forEach { route ->
+                                        retrieveRoutesList.add(route.getValue(RouteAsData::class.java)!!)
+                                    }
+                                }
+                                "stories" -> {
+                                    it.children.forEach { story ->
+                                        retrieveStoriesList.add(story.getValue(StoryAsData::class.java)!!)
+                                    }
+                                }
+                                "events" -> {
+                                    it.children.forEach { event ->
+                                        retrieveEventsList.add(event.getValue(EventAsData::class.java)!!)
+                                    }
+                                }
+                            }
                         }
                         val routes: List<Route> = retrieveRoutesList.map {
                             Route(
                                 title = it.title!!
                             )
                         }
-//                        _storiesListUpdated.value = routesList.map {
-//                            Route(
-//                                title = it.title!!
-//                            )
-//                        }
+                        val stories: List<Story> = retrieveStoriesList.map {
+                            Story(
+                                title = it.title!!
+                            )
+                        }
+                        val events: List<Event> = retrieveEventsList.map {
+                            Event(
+                                title = it.title!!,
+                                time = it.time!!,
+                                place = it.place!!,
+                            )
+                        }
                         _uiState.postValue(
                             MainScreenUiState.Content(
                                 events = events, stories = stories, routes = routes

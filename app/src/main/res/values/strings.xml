@@ -9,4 +9,7 @@
     <string name="for_you">Для тебя</string>
     <string name="account">Аккаунт</string>
     <string name="notification">Уведомления</string>
+    <string name="where">Где: %s</string>
+    <string name="when">Когда: %s</string>
+    <string name="show_all">Показать все</string>
 </resources>

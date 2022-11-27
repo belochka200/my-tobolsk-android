@@ -19,6 +19,6 @@ class LoginScreen : Fragment(R.layout.fragment__login_screen) {
         menu.forEach {
             it.isVisible = false
         }
-//        menu.findItem(R.id.menu_item__profile).isVisible = false
+        menu.findItem(R.id.menu_item__profile).isVisible = false
     }
 }

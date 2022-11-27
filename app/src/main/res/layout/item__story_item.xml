@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="125dp"
     android:layout_height="125dp"
-    android:layout_marginHorizontal="@dimen/very_small_indent">
+    android:layout_marginHorizontal="@dimen/small_indent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,10 +14,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="@dimen/very_small_indent"
-            android:layout_marginTop="@dimen/very_small_indent"
-            android:layout_marginEnd="@dimen/very_small_indent"
-            android:layout_marginBottom="@dimen/very_small_indent" />
+            android:layout_marginStart="@dimen/small_indent"
+            android:layout_marginTop="@dimen/small_indent"
+            android:layout_marginEnd="@dimen/small_indent"
+            android:layout_marginBottom="@dimen/small_indent" />
 
     </RelativeLayout>
 
