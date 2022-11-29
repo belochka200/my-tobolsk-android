@@ -12,7 +12,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import com.example.mytobolsk.data.models.Event as EventAsData
@@ -74,7 +73,6 @@ class MainScreenViewModel : ViewModel() {
                                 time = it.time!!,
                                 place = it.place!!,
                                 date = it.date!!,
-                                image = it.image!!,
                             )
                         }
                         _uiState.postValue(

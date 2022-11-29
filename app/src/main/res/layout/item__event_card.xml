@@ -36,7 +36,7 @@
                     android:layout_marginTop="@dimen/small_indent"
                     android:layout_marginEnd="@dimen/small_indent"
                     android:layout_marginBottom="@dimen/small_indent"
-                    android:src="@drawable/ic_round_favorite_24" />
+                    android:src="@drawable/ic_round_favorite_border_24" />
 
             </RelativeLayout>
 
