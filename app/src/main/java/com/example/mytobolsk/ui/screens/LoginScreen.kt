@@ -1,24 +1,33 @@
 package com.example.mytobolsk.ui.screens
 
 import android.os.Bundle
-import android.view.Menu
 import android.view.View
-import androidx.core.view.forEach
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.mytobolsk.R
+import com.example.mytobolsk.databinding.FragmentLoginScreenBinding
 
 class LoginScreen : Fragment(R.layout.fragment__login_screen) {
-    // TODO депрекейтед методы
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
+        val binding: FragmentLoginScreenBinding = FragmentLoginScreenBinding.bind(view)
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+        binding.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.menu_item__notification -> {
+                    Toast.makeText(
+                        requireContext(),
+                        "Уведомлений нет 2",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
-        menu.forEach {
-            it.isVisible = false
-        }
-        menu.findItem(R.id.menu_item__profile).isVisible = false
-    }
 }

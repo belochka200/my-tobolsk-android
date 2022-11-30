@@ -20,32 +20,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
         navController = navHostFragment.navController
-        setSupportActionBar(toolbar)
-        toolbar.setupWithNavController(navController)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        super.onCreateOptionsMenu(menu)
-        menuInflater.inflate(R.menu.toolbar_menu, menu)
-        return true
-    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        super.onCreateOptionsMenu(menu)
+//        menuInflater.inflate(R.menu.toolbar_menu, menu)
+//        return true
+//    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        super.onOptionsItemSelected(item)
-        when (item.itemId) {
-            R.id.menu_item__profile -> navController.navigate(R.id.action_mainScreen_to_loginScreen)
-            R.id.menu_item__notification -> {
-                Toast.makeText(
-                    this,
-                    "Уведомлений нет",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
-        return true
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        super.onOptionsItemSelected(item)
+//        when (item.itemId) {
+//            R.id.menu_item__profile -> navController.navigate(R.id.action_mainScreen_to_loginScreen)
+//            R.id.menu_item__notification -> {
+//                Toast.makeText(
+//                    this,
+//                    "Уведомлений нет",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//        }
+//        return true
+//    }
 }

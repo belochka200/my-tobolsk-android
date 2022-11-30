@@ -5,7 +5,7 @@
         android:id="@+id/menu_item__notification"
         app:showAsAction="ifRoom"
         android:title="@string/notification"
-        android:icon="@drawable/ic_round_notifications_24" />
+        android:icon="@drawable/ic_round_notifications_none_24" />
     <item
         android:id="@+id/menu_item__profile"
         app:showAsAction="always"
