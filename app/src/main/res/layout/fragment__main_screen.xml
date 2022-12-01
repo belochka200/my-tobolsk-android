@@ -45,6 +45,7 @@
                 android:text="@string/useful" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:layoutAnimation="@anim/recyclerview_layout_animation"
                 android:id="@+id/recycler_view__stories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,6 +81,7 @@
             </FrameLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:layoutAnimation="@anim/recyclerview_layout_animation"
                 android:id="@+id/recycler_view__events"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,7 +92,6 @@
 
             <FrameLayout
                 android:layout_marginHorizontal="@dimen/medium_indent"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/small_indent"
@@ -116,13 +117,14 @@
             </FrameLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:layoutAnimation="@anim/recyclerview_layout_animation"
                 android:id="@+id/recycler_view__routes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/large_indent"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item__story_item" />
+                tools:listitem="@layout/item__route_card" />
 
             <FrameLayout
                 android:layout_marginHorizontal="@dimen/medium_indent"
@@ -151,13 +153,14 @@
             </FrameLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:layoutAnimation="@anim/recyclerview_layout_animation"
                 android:id="@+id/recycler_view__interesting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/large_indent"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item__story_item" />
+                tools:listitem="@layout/item__interesting_places_card" />
 
         </LinearLayout>
 
