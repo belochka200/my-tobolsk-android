@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.mytobolsk.R
-import com.google.android.material.color.DynamicColors
 
 class MainActivity : AppCompatActivity() {
 

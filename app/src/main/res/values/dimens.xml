@@ -4,4 +4,8 @@
     <dimen name="medium_large_indent">24dp</dimen>
     <dimen name="medium_indent">16dp</dimen>
     <dimen name="small_indent">8dp</dimen>
+    <integer name="duration_translate">200</integer>
+    <integer name="duration_alpha">250</integer>
+    <integer name="duration_translate_slow">400</integer>
+    <integer name="duration_alpha_slow">500</integer>
 </resources>

@@ -2,7 +2,6 @@ package com.example.mytobolsk.ui.screens
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mytobolsk.R
@@ -15,19 +14,18 @@ class LoginScreen : Fragment(R.layout.fragment__login_screen) {
         binding.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
-        binding.toolbar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.menu_item__notification -> {
-                    Toast.makeText(
-                        requireContext(),
-                        "Уведомлений нет 2",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    true
-                }
-                else -> false
-            }
-        }
+//        binding.toolbar.setOnMenuItemClickListener {
+//            when (it.itemId) {
+//                R.id.menu_item__notification -> {
+//                    Toast.makeText(
+//                        requireContext(),
+//                        "Уведомлений нет 2",
+//                        Toast.LENGTH_LONG
+//                    ).show()
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
     }
-
 }
