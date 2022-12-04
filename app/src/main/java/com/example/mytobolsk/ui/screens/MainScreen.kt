@@ -97,7 +97,7 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
         }
         if (show && stories != null) {
             binding.apply {
-                recyclerViewStories.adapter = StoriesAdapter(stories) { showStoryTitle(it) }
+                recyclerViewStories.adapter = StoriesAdapter(stories) { showStory(it) }
                 recyclerViewStories.adapter!!.stateRestorationPolicy =
                     RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
             }
@@ -114,19 +114,11 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
         }
     }
 
-    private fun showStoryTitle(story: Story) {
-        Toast.makeText(
-            requireContext(),
-            story.title,
-            Toast.LENGTH_SHORT
-        ).show()
+    private fun showStory(story: Story) {
+        findNavController().navigate(R.id.action_mainScreen_to_storyScreen)
     }
 
     private fun showEvent(event: Event) {
-        Toast.makeText(
-            requireContext(),
-            "Мероприятие: ${event.title}",
-            Toast.LENGTH_SHORT
-        ).show()
+        findNavController().navigate(R.id.action_mainScreen_to_eventDetailScreen)
     }
 }

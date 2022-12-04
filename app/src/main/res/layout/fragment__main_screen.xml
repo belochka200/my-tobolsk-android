@@ -15,7 +15,7 @@
             app:title="@string/app_name"
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             tools:title="@string/app_name" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -31,11 +31,14 @@
             android:animateLayoutChanges="true"
             android:orientation="vertical">
 
-            <ProgressBar
+            <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/progress_circular_bar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                app:hideAnimationBehavior="inward"
+                app:showAnimationBehavior="outward"
+                app:indeterminateAnimationType="disjoint"
                 tools:visibility="gone" />
 
             <TextView
