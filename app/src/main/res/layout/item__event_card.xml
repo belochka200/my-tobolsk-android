@@ -1,70 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
 
-    <data></data>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/small_indent"
+    android:layout_marginBottom="@dimen/small_indent"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/small_indent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <RelativeLayout
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                tools:src="@tools:sample/avatars" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background"
-                    tools:src="@tools:sample/avatars" />
-
-                <ImageButton
-                    android:id="@+id/item_event_card_like_button"
-                    style="@style/Widget.Material3.Button.IconButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="@dimen/small_indent"
-                    android:layout_marginTop="@dimen/small_indent"
-                    android:layout_marginEnd="@dimen/small_indent"
-                    android:layout_marginBottom="@dimen/small_indent"
-                    android:src="@drawable/ic_round_favorite_border_24" />
-
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/item_event_card_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/small_indent"
-                android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
-                tools:text="@tools:sample/lorem" />
-
-            <TextView
-                android:id="@+id/item_event_card_time"
+            <ImageButton
+                android:id="@+id/item_event_card_like_button"
+                style="@style/Widget.Material3.Button.IconButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/small_indent"
-                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-                tools:text="@string/when" />
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/small_indent"
+                android:layout_marginTop="@dimen/small_indent"
+                android:layout_marginEnd="@dimen/small_indent"
+                android:layout_marginBottom="@dimen/small_indent"
+                android:src="@drawable/ic_round_favorite_border_24" />
 
-            <TextView
-                android:id="@+id/item_event_card_place"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/small_indent"
-                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-                tools:text="@string/where" />
+        </RelativeLayout>
 
-        </LinearLayout>
+        <TextView
+            android:id="@+id/item_event_card_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_indent"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+            tools:text="@tools:sample/lorem" />
 
-    </com.google.android.material.card.MaterialCardView>
-</layout>
+        <TextView
+            android:id="@+id/item_event_card_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_indent"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            tools:text="@string/when" />
+
+        <TextView
+            android:id="@+id/item_event_card_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_indent"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            tools:text="@string/where" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

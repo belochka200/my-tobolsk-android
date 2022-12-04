@@ -15,7 +15,7 @@
             app:title="@string/app_name"
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             tools:title="@string/app_name" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -31,11 +31,14 @@
             android:animateLayoutChanges="true"
             android:orientation="vertical">
 
-            <ProgressBar
+            <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/progress_circular_bar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                app:hideAnimationBehavior="inward"
+                app:showAnimationBehavior="outward"
+                app:indeterminateAnimationType="disjoint"
                 tools:visibility="gone" />
 
             <TextView
@@ -45,6 +48,7 @@
                 android:text="@string/useful" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:layoutAnimation="@anim/recyclerview_layout_animation"
                 android:id="@+id/recycler_view__stories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,6 +84,7 @@
             </FrameLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:layoutAnimation="@anim/recyclerview_layout_animation"
                 android:id="@+id/recycler_view__events"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,7 +95,6 @@
 
             <FrameLayout
                 android:layout_marginHorizontal="@dimen/medium_indent"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/small_indent"
@@ -116,13 +120,14 @@
             </FrameLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:layoutAnimation="@anim/recyclerview_layout_animation"
                 android:id="@+id/recycler_view__routes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/large_indent"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item__story_item" />
+                tools:listitem="@layout/item__route_card" />
 
             <FrameLayout
                 android:layout_marginHorizontal="@dimen/medium_indent"
@@ -151,13 +156,14 @@
             </FrameLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:layoutAnimation="@anim/recyclerview_layout_animation"
                 android:id="@+id/recycler_view__interesting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/large_indent"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item__story_item" />
+                tools:listitem="@layout/item__interesting_places_card" />
 
         </LinearLayout>
 

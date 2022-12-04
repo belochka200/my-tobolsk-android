@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.example.mytobolsk.R
 import com.example.mytobolsk.databinding.FragmentMainScreenBinding
 import com.example.mytobolsk.ui.adapters.EventsAdapter
@@ -94,11 +95,30 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
 
             progressCircularBar.isVisible = !show
         }
-        if (show && stories != null)
-            binding.recyclerViewStories.adapter = StoriesAdapter(stories)
-        if (show && events != null)
-            binding.recyclerViewEvents.adapter = EventsAdapter(events)
-        if (show && routes != null)
+        if (show && stories != null) {
+            binding.apply {
+                recyclerViewStories.adapter = StoriesAdapter(stories) { showStory(it) }
+                recyclerViewStories.adapter!!.stateRestorationPolicy =
+                    RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+            }
+        }
+        if (show && events != null) {
+            binding.recyclerViewEvents.adapter = EventsAdapter(events) { showEvent(it) }
+            binding.recyclerViewEvents.adapter!!.stateRestorationPolicy =
+                RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+        }
+        if (show && routes != null) {
             binding.recyclerViewRoutes.adapter = RoutesAdapter(routes)
+            binding.recyclerViewRoutes.adapter!!.stateRestorationPolicy =
+                RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+        }
+    }
+
+    private fun showStory(story: Story) {
+        findNavController().navigate(R.id.action_mainScreen_to_storyScreen)
+    }
+
+    private fun showEvent(event: Event) {
+        findNavController().navigate(R.id.action_mainScreen_to_eventDetailScreen)
     }
 }

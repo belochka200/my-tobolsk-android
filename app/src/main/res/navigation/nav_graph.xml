@@ -17,10 +17,34 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_mainScreen_to_eventDetailScreen"
+            app:destination="@id/eventDetailScreen"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            android:id="@+id/action_mainScreen_to_storyScreen"
+            app:destination="@id/storyScreen" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment__login_screen"
         android:id="@+id/loginScreen"
         android:name="com.example.mytobolsk.ui.screens.LoginScreen"
         android:label="Аккаунт" />
+    <fragment
+        tools:layout="@layout/fragment__detail_event_screen"
+        android:id="@+id/eventDetailScreen"
+        android:name="com.example.mytobolsk.ui.screens.EventDetailScreen"
+        android:label="EventDetailScreen" />
+    <fragment
+        tools:layout="@layout/fragment__story_screen"
+        android:id="@+id/storyScreen"
+        android:name="com.example.mytobolsk.ui.screens.StoryScreen"
+        android:label="StoryScreen" />
 </navigation>
