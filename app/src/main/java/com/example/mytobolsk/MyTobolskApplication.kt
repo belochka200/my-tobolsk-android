@@ -1,8 +1,6 @@
 package com.example.mytobolsk
 
 import android.app.Application
-import android.os.Build
-import android.util.Log
 import com.google.android.material.color.DynamicColors
 
 class MyTobolskApplication : Application() {

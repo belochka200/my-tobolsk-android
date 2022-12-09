@@ -46,5 +46,9 @@
         tools:layout="@layout/fragment__story_screen"
         android:id="@+id/storyScreen"
         android:name="com.example.mytobolsk.ui.screens.StoryScreen"
-        android:label="StoryScreen" />
+        android:label="StoryScreen" >
+        <argument android:name="storyId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>

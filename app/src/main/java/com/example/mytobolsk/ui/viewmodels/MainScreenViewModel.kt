@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mytobolsk.ui.models.Event
 import com.example.mytobolsk.ui.models.Route
 import com.example.mytobolsk.ui.models.Story
+import com.example.mytobolsk.ui.states.EventItemUiState
 import com.example.mytobolsk.ui.states.MainScreenUiState
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -20,8 +20,8 @@ import com.example.mytobolsk.data.models.Story as StoryAsData
 
 class MainScreenViewModel : ViewModel() {
     private val _uiState = MutableLiveData<MainScreenUiState>(MainScreenUiState.Loading)
-
     val uiState: LiveData<MainScreenUiState> = _uiState
+
     private var job: Job? = null
 
     init {
@@ -47,7 +47,8 @@ class MainScreenViewModel : ViewModel() {
                                 }
                                 "stories" -> {
                                     it.children.forEach { story ->
-                                        retrieveStoriesList.add(story.getValue(StoryAsData::class.java)!!)
+                                        val storyToList = story.getValue(StoryAsData::class.java)!!
+                                        retrieveStoriesList.add(storyToList)
                                     }
                                 }
                                 "events" -> {
@@ -64,11 +65,12 @@ class MainScreenViewModel : ViewModel() {
                         }
                         val stories: List<Story> = retrieveStoriesList.map {
                             Story(
+                                id = it.id!!,
                                 title = it.title!!
                             )
                         }
-                        val events: List<Event> = retrieveEventsList.map {
-                            Event(
+                        val events: List<EventItemUiState> = retrieveEventsList.map {
+                            EventItemUiState(
                                 title = it.title!!,
                                 time = it.time!!,
                                 place = it.place!!,
@@ -82,7 +84,9 @@ class MainScreenViewModel : ViewModel() {
                         )
                     }
 
-                    override fun onCancelled(error: DatabaseError) {}
+                    override fun onCancelled(error: DatabaseError) {
+                        _uiState.postValue(MainScreenUiState.Error)
+                    }
                 })
             } catch (_: Exception) {
                 _uiState.postValue(MainScreenUiState.Error)

@@ -32,14 +32,14 @@
             android:orientation="vertical">
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
-                android:id="@+id/progress_circular_bar"
+                android:id="@+id/progress_horizontal_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:indeterminate="true"
                 app:hideAnimationBehavior="inward"
                 app:showAnimationBehavior="outward"
                 app:indeterminateAnimationType="disjoint"
-                tools:visibility="gone" />
+                tools:visibility="visible" />
 
             <TextView
                 android:layout_marginHorizontal="@dimen/medium_indent"

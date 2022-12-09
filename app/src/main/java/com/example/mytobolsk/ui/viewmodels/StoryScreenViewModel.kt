@@ -1,12 +1,28 @@
 package com.example.mytobolsk.ui.viewmodels
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.mytobolsk.ui.states.StoryScreenUiState
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 class StoryScreenViewModel : ViewModel() {
-//    fun getStoryInfo(storyId: Int) {
-//        val database = Firebase.database.reference
-//        database.child("stories").child(storyId.toString()).get().addOnSuccessListener {
-//            Log.d("Story load", it.value.toString())
-//        }
-//    }
+    private val _uiState = MutableLiveData<StoryScreenUiState>(StoryScreenUiState.Loading)
+    val uiState = _uiState
+    private var job: Job? = null
+
+    fun fetchStory(storyId: Int) {
+        job?.cancel()
+        job = viewModelScope.launch {
+            try {
+                _uiState.postValue(StoryScreenUiState.Content(
+                    title = "Story title $storyId",
+                    text = "Lorem ipsum text"
+                ))
+            } catch (_: Exception) {
+                _uiState.postValue(StoryScreenUiState.Error)
+            }
+        }
+    }
 }

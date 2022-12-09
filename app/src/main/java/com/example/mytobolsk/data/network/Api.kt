@@ -19,11 +19,11 @@ class ApiImpl : Api {
 
     override suspend fun getAllStories(): List<Story> {
         return listOf(
-            Story("Story 1"),
-            Story("Story 2"),
-            Story("Story 3"),
-            Story("Story 4"),
-            Story("Story 5"),
+            Story(0, "Story 1"),
+            Story(1, "Story 2"),
+            Story(2, "Story 3"),
+            Story(3, "Story 4"),
+            Story(4, "Story 5"),
         )
     }
 

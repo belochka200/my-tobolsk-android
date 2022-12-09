@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mytobolsk.R
 import com.example.mytobolsk.databinding.ItemEventCardBinding
-import com.example.mytobolsk.ui.models.Event
+import com.example.mytobolsk.ui.states.EventItemUiState
 
 class EventsAdapter(
-    private val eventsDataset: List<Event>,
-    private val clickListener: (Event) -> Unit
+    private val eventsDataset: List<EventItemUiState>,
+    private val clickListener: (EventItemUiState) -> Unit
 ) : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemEventCardBinding) :

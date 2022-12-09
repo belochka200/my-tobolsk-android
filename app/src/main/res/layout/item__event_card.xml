@@ -65,6 +65,12 @@
             android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
             tools:text="@string/where" />
 
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:text="Bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

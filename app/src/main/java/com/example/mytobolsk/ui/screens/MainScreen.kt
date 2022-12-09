@@ -3,6 +3,7 @@ package com.example.mytobolsk.ui.screens
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,9 +14,9 @@ import com.example.mytobolsk.databinding.FragmentMainScreenBinding
 import com.example.mytobolsk.ui.adapters.EventsAdapter
 import com.example.mytobolsk.ui.adapters.RoutesAdapter
 import com.example.mytobolsk.ui.adapters.StoriesAdapter
-import com.example.mytobolsk.ui.models.Event
 import com.example.mytobolsk.ui.models.Route
 import com.example.mytobolsk.ui.models.Story
+import com.example.mytobolsk.ui.states.EventItemUiState
 import com.example.mytobolsk.ui.states.MainScreenUiState
 import com.example.mytobolsk.ui.viewmodels.MainScreenViewModel
 import com.google.android.material.appbar.MaterialToolbar
@@ -80,7 +81,7 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
         show: Boolean,
         stories: List<Story>?,
         routes: List<Route>?,
-        events: List<Event>?
+        events: List<EventItemUiState>?
     ) {
         binding.apply {
             headingEvents.isVisible = show
@@ -93,11 +94,11 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
             showAllRoutesButton.isVisible = show
             showAllInterestingPlacesButton.isVisible = show
 
-            progressCircularBar.isVisible = !show
+            progressHorizontalBar.isVisible = !show
         }
         if (show && stories != null) {
             binding.apply {
-                recyclerViewStories.adapter = StoriesAdapter(stories) { showStory(it) }
+                recyclerViewStories.adapter = StoriesAdapter(stories) { showStory(it.id) }
                 recyclerViewStories.adapter!!.stateRestorationPolicy =
                     RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
             }
@@ -114,11 +115,16 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
         }
     }
 
-    private fun showStory(story: Story) {
-        findNavController().navigate(R.id.action_mainScreen_to_storyScreen)
+    private fun showStory(storyId: Int) {
+        val bundle = bundleOf("storyId" to storyId)
+        findNavController().navigate(R.id.action_mainScreen_to_storyScreen, bundle)
     }
 
-    private fun showEvent(event: Event) {
+    private fun showEvent(event: EventItemUiState) {
         findNavController().navigate(R.id.action_mainScreen_to_eventDetailScreen)
     }
+
+//    private fun bookmarkedEvent(event: EventItemUiState) {
+//
+//    }
 }

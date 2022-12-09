@@ -14,4 +14,5 @@
     <string name="when">Когда: %s, %s</string>
     <string name="show_all">Показать все</string>
     <string name="next">Продолжить</string>
+    <string name="share">Поделиться</string>
 </resources>
