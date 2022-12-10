@@ -45,7 +45,7 @@ class StoryScreen : Fragment(R.layout.fragment__story_screen) {
                 }
                 StoryScreenUiState.Loading -> {}
                 is StoryScreenUiState.Content -> {
-                    binding.storyDescribe.text = newState.title
+                    binding.storyDescribe.text = newState.describe
                 }
             }
         }

@@ -14,18 +14,5 @@ class LoginScreen : Fragment(R.layout.fragment__login_screen) {
         binding.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
-//        binding.toolbar.setOnMenuItemClickListener {
-//            when (it.itemId) {
-//                R.id.menu_item__notification -> {
-//                    Toast.makeText(
-//                        requireContext(),
-//                        "Уведомлений нет 2",
-//                        Toast.LENGTH_LONG
-//                    ).show()
-//                    true
-//                }
-//                else -> false
-//            }
-//        }
     }
 }

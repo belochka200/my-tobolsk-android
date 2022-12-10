@@ -12,7 +12,7 @@ class EventDetailScreen : Fragment(R.layout.fragment__detail_event_screen) {
         super.onViewCreated(view, savedInstanceState)
         val binding: FragmentDetailEventScreenBinding = FragmentDetailEventScreenBinding.bind(view)
         binding.apply {
-            toolbar.title = "Title 2"
+            toolbar.title = ""
             toolbar.setNavigationOnClickListener {
                 findNavController().popBackStack()
             }

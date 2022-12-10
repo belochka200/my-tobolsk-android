@@ -31,7 +31,7 @@ interface Api {
     @GET("routes")
     suspend fun loadAllRoutes(): List<Route>
 
-    @GET("routes/{id}")
+    @GET("stories/{id}")
     suspend fun loadStoryById(@Path("id") id: Int): Story
 }
 
