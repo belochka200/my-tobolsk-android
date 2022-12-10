@@ -65,8 +65,7 @@ class MainScreenViewModel : ViewModel() {
                         }
                         val stories: List<Story> = retrieveStoriesList.map {
                             Story(
-                                id = it.id!!,
-                                title = it.title!!
+                                id = it.id!!, title = it.title!!
                             )
                         }
                         val events: List<EventItemUiState> = retrieveEventsList.map {

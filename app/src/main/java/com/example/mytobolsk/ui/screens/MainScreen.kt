@@ -104,7 +104,11 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
             }
         }
         if (show && events != null) {
-            binding.recyclerViewEvents.adapter = EventsAdapter(events) { showEvent(it) }
+            binding.recyclerViewEvents.adapter = EventsAdapter(
+                events,
+                clickListener = { showEvent(it) },
+                bookmarked = { bookmarkedEvent(it) }
+            )
             binding.recyclerViewEvents.adapter!!.stateRestorationPolicy =
                 RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         }
@@ -124,7 +128,7 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
         findNavController().navigate(R.id.action_mainScreen_to_eventDetailScreen)
     }
 
-//    private fun bookmarkedEvent(event: EventItemUiState) {
-//
-//    }
+    private fun bookmarkedEvent(event: EventItemUiState) {
+
+    }
 }

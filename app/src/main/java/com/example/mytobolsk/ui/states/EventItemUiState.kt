@@ -5,5 +5,6 @@ data class EventItemUiState(
     val time: String,
     val place: String,
     val date: String,
-    val bookmarked: Boolean = false
+    val bookmarked: Boolean = true,
+//    val onBookmark: () -> Unit
 )

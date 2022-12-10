@@ -9,7 +9,8 @@ import com.example.mytobolsk.ui.states.EventItemUiState
 
 class EventsAdapter(
     private val eventsDataset: List<EventItemUiState>,
-    private val clickListener: (EventItemUiState) -> Unit
+    private val clickListener: (EventItemUiState) -> Unit,
+    private val bookmarked: (EventItemUiState) -> Unit
 ) : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemEventCardBinding) :
@@ -27,9 +28,12 @@ class EventsAdapter(
 
             with(eventsDataset[position]) {
                 binding.itemEventCardTitle.text = title
-                binding.itemEventCardPlace.text = holder.itemView.context.getString(R.string.`where`, place)
+                binding.itemEventCardPlace.text =
+                    holder.itemView.context.getString(R.string.`where`, place)
                 binding.itemEventCardTime.text =
                     holder.itemView.context.getString(R.string.`when`, date, time)
+                binding.checkbox.isChecked = bookmarked
+                binding.checkbox.setOnClickListener { bookmarked(this) }
             }
         }
     }
