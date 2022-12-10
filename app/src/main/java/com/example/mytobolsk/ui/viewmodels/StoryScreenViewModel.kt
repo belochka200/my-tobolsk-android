@@ -3,6 +3,7 @@ package com.example.mytobolsk.ui.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mytobolsk.domain.usecases.LoadStoryByIdImpl
 import com.example.mytobolsk.ui.states.StoryScreenUiState
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -16,9 +17,10 @@ class StoryScreenViewModel : ViewModel() {
         job?.cancel()
         job = viewModelScope.launch {
             try {
+                val story = LoadStoryByIdImpl().getStory(storyId)
                 _uiState.postValue(StoryScreenUiState.Content(
-                    title = "Story title $storyId",
-                    text = "Lorem ipsum text"
+                    title = story.title,
+                    describe = story.describe
                 ))
             } catch (_: Exception) {
                 _uiState.postValue(StoryScreenUiState.Error)
