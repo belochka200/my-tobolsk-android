@@ -16,6 +16,7 @@ class StoryScreenViewModel : ViewModel() {
     fun fetchStory(storyId: Int) {
         job?.cancel()
         job = viewModelScope.launch {
+            _uiState.value = StoryScreenUiState.Loading
             try {
                 val story = LoadStoryByIdImpl().getStory(storyId)
                 _uiState.postValue(StoryScreenUiState.Content(

@@ -7,11 +7,11 @@ interface LoadStoryById {
     suspend fun getStory(id: Int): Story
 }
 
-class LoadStoryByIdImpl(private val api: ApiImpl = ApiImpl()) : LoadStoryById {
+class LoadStoryByIdImpl : LoadStoryById {
     override suspend fun getStory(id: Int): Story {
-        val response = api.loadStoryById(id)
+        val response = ApiImpl.retrofitService.loadStoryById(id)
         return Story(
-            id = response.id,
+            id = id,
             title = response.title,
             describe = response.describe
         )

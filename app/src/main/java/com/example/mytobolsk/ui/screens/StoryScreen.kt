@@ -36,18 +36,14 @@ class StoryScreen : Fragment(R.layout.fragment__story_screen) {
         }
         storyScreenViewModel.uiState.observe(viewLifecycleOwner) { newState ->
             when (newState) {
-                StoryScreenUiState.Error -> Toast.makeText(
-                    requireContext(),
-                    "Ошибка загрузки",
-                    Toast.LENGTH_LONG
-                ).show()
-                StoryScreenUiState.Loading -> {
+                StoryScreenUiState.Error -> {
                     Toast.makeText(
                         requireContext(),
-                        "Загрузка",
+                        "Ошибка загрузки",
                         Toast.LENGTH_LONG
                     ).show()
                 }
+                StoryScreenUiState.Loading -> {}
                 is StoryScreenUiState.Content -> {
                     binding.storyDescribe.text = newState.title
                 }
