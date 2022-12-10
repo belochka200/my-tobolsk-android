@@ -14,9 +14,9 @@ import com.example.mytobolsk.databinding.FragmentMainScreenBinding
 import com.example.mytobolsk.ui.adapters.EventsAdapter
 import com.example.mytobolsk.ui.adapters.RoutesAdapter
 import com.example.mytobolsk.ui.adapters.StoriesAdapter
+import com.example.mytobolsk.ui.models.Event
 import com.example.mytobolsk.ui.models.Route
 import com.example.mytobolsk.ui.models.Story
-import com.example.mytobolsk.ui.states.EventItemUiState
 import com.example.mytobolsk.ui.states.MainScreenUiState
 import com.example.mytobolsk.ui.viewmodels.MainScreenViewModel
 import com.google.android.material.appbar.MaterialToolbar
@@ -81,7 +81,7 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
         show: Boolean,
         stories: List<Story>?,
         routes: List<Route>?,
-        events: List<EventItemUiState>?
+        events: List<Event>?
     ) {
         binding.apply {
             headingEvents.isVisible = show
@@ -107,7 +107,7 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
             binding.recyclerViewEvents.adapter = EventsAdapter(
                 events,
                 clickListener = { showEvent(it) },
-                bookmarked = { bookmarkedEvent(it) }
+//                bookmarked = { bookmarkedEvent(it) }
             )
             binding.recyclerViewEvents.adapter!!.stateRestorationPolicy =
                 RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
@@ -124,11 +124,11 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
         findNavController().navigate(R.id.action_mainScreen_to_storyScreen, bundle)
     }
 
-    private fun showEvent(event: EventItemUiState) {
+    private fun showEvent(event: Event) {
         findNavController().navigate(R.id.action_mainScreen_to_eventDetailScreen)
     }
 
-    private fun bookmarkedEvent(event: EventItemUiState) {
-
-    }
+//    private fun bookmarkedEvent(event: Event) {
+//
+//    }
 }

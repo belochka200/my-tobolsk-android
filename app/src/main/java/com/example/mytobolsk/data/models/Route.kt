@@ -1,8 +1,10 @@
 package com.example.mytobolsk.data.models
 
-import com.google.firebase.database.IgnoreExtraProperties
+import kotlinx.serialization.Serializable
 
-@IgnoreExtraProperties
+@Serializable
 data class Route(
-    val title: String? = null
+    val id: Int,
+    val title: String,
+    val describe: String
 )

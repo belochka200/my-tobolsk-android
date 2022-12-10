@@ -13,27 +13,34 @@ interface LoadMainScreen {
 
 class LoadMainScreenImpl(private val api: ApiImpl = ApiImpl()) : LoadMainScreen {
     override suspend fun getAllEvents(): List<Event> {
-        return api.getAllEvent().map {
+        return api.loadAllEvents().map {
             Event(
-                title = it.title!!,
-                time = it.time!!,
-                place = it.place!!
+                id = it.id,
+                title = it.title,
+                describe = it.describe,
+                date = it.date,
+                time = it.time,
+                place = it.place
             )
         }
     }
 
     override suspend fun getAllRoutes(): List<Route> {
-        return api.getAllRoutes().map {
+        return api.loadAllRoutes().map {
             Route(
-                title = it.title!!
+                id = it.id,
+                title = it.title,
+                describe = it.describe
             )
         }
     }
 
     override suspend fun getAllStories(): List<Story> {
-        return api.getAllStories().map {
+        return api.loadAllStories().map {
             Story(
-                title = it.title!!
+                id = it.id,
+                title = it.title,
+                describe = it.describe
             )
         }
     }

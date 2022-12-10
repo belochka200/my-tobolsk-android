@@ -3,33 +3,31 @@ package com.example.mytobolsk.data.network
 import com.example.mytobolsk.data.models.Event
 import com.example.mytobolsk.data.models.Route
 import com.example.mytobolsk.data.models.Story
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
+import java.net.URL
+
+private const val BASE_URL = "http://192.168.1.137:8000/api/"
 
 interface Api {
-    suspend fun getAllEvent(): List<Event>
-    suspend fun getAllStories(): List<Story>
-    suspend fun getAllRoutes(): List<Route>
+    suspend fun loadAllEvents(): List<Event>
+    suspend fun loadAllStories(): List<Story>
+    suspend fun loadAllRoutes(): List<Route>
 }
 
 class ApiImpl : Api {
-    override suspend fun getAllEvent(): List<Event> {
-        return listOf(
-            Event("Мероприятие 1")
-        )
+    override suspend fun loadAllEvents(): List<Event> {
+        val response = URL("${BASE_URL}events").readText()
+        return Json.decodeFromString(response)
     }
 
-    override suspend fun getAllStories(): List<Story> {
-        return listOf(
-            Story(0, "Story 1"),
-            Story(1, "Story 2"),
-            Story(2, "Story 3"),
-            Story(3, "Story 4"),
-            Story(4, "Story 5"),
-        )
+    override suspend fun loadAllStories(): List<Story> {
+        val response = URL("${BASE_URL}stories").readText()
+        return Json.decodeFromString(response)
     }
 
-    override suspend fun getAllRoutes(): List<Route> {
-        return listOf(
-            Route("Маршрут номер 1")
-        )
+    override suspend fun loadAllRoutes(): List<Route> {
+        val response = URL("${BASE_URL}routes").readText()
+        return Json.decodeFromString(response)
     }
 }
