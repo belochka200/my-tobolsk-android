@@ -1,6 +1,5 @@
 package com.example.mytobolsk.ui.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,8 +23,9 @@ class MainScreenViewModel : ViewModel() {
         fetchData()
     }
 
-    private fun fetchData() {
+    fun fetchData() {
         job?.cancel()
+        _uiState.value = MainScreenUiState.Loading
         job = viewModelScope.launch(Dispatchers.IO) {
             try {
                 val events: List<Event> = LoadMainScreenImpl().getAllEvents().map {
@@ -54,11 +54,12 @@ class MainScreenViewModel : ViewModel() {
                 }
                 _uiState.postValue(
                     MainScreenUiState.Content(
-                        events = events, stories = stories, routes = routes
+                        events = events,
+                        stories = stories,
+                        routes = routes
                     )
                 )
             } catch (e: Exception) {
-                Log.e("Error", e.message.toString())
                 _uiState.postValue(MainScreenUiState.Error)
             }
         }

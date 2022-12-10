@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.mytobolsk.R
 import com.example.mytobolsk.databinding.FragmentMainScreenBinding
 import com.example.mytobolsk.ui.adapters.EventsAdapter
@@ -27,8 +28,13 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel: MainScreenViewModel by viewModels()
+        val mainScreenViewModel: MainScreenViewModel by viewModels()
         binding = FragmentMainScreenBinding.bind(view)
+        val swipeRefreshLayout: SwipeRefreshLayout = binding.swipeToRefresh
+        swipeRefreshLayout.setOnRefreshListener {
+            mainScreenViewModel.fetchData()
+            swipeRefreshLayout.isRefreshing = false
+        }
         val toolBar: MaterialToolbar = binding.toolbar
         toolBar.setOnMenuItemClickListener {
             when (it.itemId) {
@@ -48,7 +54,7 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
             }
         }
 
-        viewModel.uiState.observe(viewLifecycleOwner) { newState ->
+        mainScreenViewModel.uiState.observe(viewLifecycleOwner) { newState ->
             when (newState) {
                 MainScreenUiState.Error -> {
                     Toast.makeText(
@@ -90,11 +96,13 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
             headingUseful.isVisible = show
             recyclerViewStories.isVisible = show
             recyclerViewEvents.isVisible = show
+            recyclerViewRoutes.isVisible = show
             showAllEventsButton.isVisible = show
             showAllRoutesButton.isVisible = show
             showAllInterestingPlacesButton.isVisible = show
 
             progressHorizontalBar.isVisible = !show
+//            swipeToRefresh.isRefreshing = !show
         }
         if (show && stories != null) {
             binding.apply {

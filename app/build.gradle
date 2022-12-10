@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'com.google.gms.google-services'
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.7.20'
     id "org.jetbrains.kotlin.kapt"
 }
@@ -53,10 +52,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     implementation 'io.coil-kt:coil:1.1.1'
-    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
-    implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.compose.material3:material3:1.0.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1'
 //  COMPOSE
 
