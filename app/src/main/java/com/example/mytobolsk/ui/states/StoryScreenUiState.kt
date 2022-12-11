@@ -5,6 +5,6 @@ sealed class StoryScreenUiState {
     object Error : StoryScreenUiState()
     data class Content(
         val title: String,
-        val describe: String
+        val describe: String,
     ) : StoryScreenUiState()
 }

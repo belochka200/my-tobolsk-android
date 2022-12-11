@@ -42,7 +42,9 @@ class MainScreenViewModel : ViewModel() {
                     Story(
                         id = it.id,
                         title = it.title,
-                        describe = it.describe
+                        describe = it.describe,
+                        date = it.date,
+                        time = it.time
                     )
                 }
                 val routes: List<Route> = LoadMainScreenImpl().getAllRoutes().map {

@@ -12,38 +12,7 @@ interface LoadMainScreen {
 }
 
 class LoadMainScreenImpl : LoadMainScreen {
-    //    override suspend fun getAllEvents(): List<Event> {
-//        return api.loadAllEvents().map {
-//            Event(
-//                id = it.id,
-//                title = it.title,
-//                describe = it.describe,
-//                date = it.date,
-//                time = it.time,
-//                place = it.place
-//            )
-//        }
-//    }
-//
-//    override suspend fun getAllRoutes(): List<Route> {
-//        return api.loadAllRoutes().map {
-//            Route(
-//                id = it.id,
-//                title = it.title,
-//                describe = it.describe
-//            )
-//        }
-//    }
-//
-//    override suspend fun getAllStories(): List<Story> {
-//        return api.loadAllStories().map {
-//            Story(
-//                id = it.id,
-//                title = it.title,
-//                describe = it.describe
-//            )
-//        }
-//    }
+
     override suspend fun getAllEvents(): List<Event> {
         return ApiImpl.retrofitService.loadAllEvents().map {
             Event(
@@ -68,7 +37,7 @@ class LoadMainScreenImpl : LoadMainScreen {
     override suspend fun getAllStories(): List<Story> {
         return ApiImpl.retrofitService.loadAllStories().map {
             Story(
-                id = it.id, title = it.title, describe = it.describe
+                id = it.id, title = it.title, describe = it.describe, date = it.date, time = it.time
             )
         }
     }

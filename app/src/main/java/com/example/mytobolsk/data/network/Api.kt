@@ -25,37 +25,15 @@ interface Api {
     @GET("events")
     suspend fun loadAllEvents(): List<Event>
 
-    @GET("stories")
+    @GET("all stories")
     suspend fun loadAllStories(): List<Story>
 
     @GET("routes")
     suspend fun loadAllRoutes(): List<Route>
 
-    @GET("stories/{id}")
+    @GET("all stories/{id}")
     suspend fun loadStoryById(@Path("id") id: Int): Story
 }
-
-//class ApiImpl : Api {
-//    override suspend fun loadAllEvents(): List<Event> {
-//        val response = URL("${BASE_URL}events").readText()
-//        return Json.decodeFromString(response)
-//    }
-//
-//    override suspend fun loadAllStories(): List<Story> {
-//        val response = URL("${BASE_URL}stories").readText()
-//        return Json.decodeFromString(response)
-//    }
-//
-//    override suspend fun loadAllRoutes(): List<Route> {
-//        val response = URL("${BASE_URL}routes").readText()
-//        return Json.decodeFromString(response)
-//    }
-//
-//    override suspend fun loadStoryById(id: Int): Story {
-//        val response = URL("${BASE_URL}stories/$id/")
-//        return Json.decodeFromString(response.toString())
-//    }
-//}
 
 object ApiImpl {
     val retrofitService : Api by lazy {

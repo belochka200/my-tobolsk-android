@@ -21,7 +21,7 @@ class StoryScreenViewModel : ViewModel() {
                 val story = LoadStoryByIdImpl().getStory(storyId)
                 _uiState.postValue(StoryScreenUiState.Content(
                     title = story.title,
-                    describe = story.describe
+                    describe = story.describe,
                 ))
             } catch (_: Exception) {
                 _uiState.postValue(StoryScreenUiState.Error)

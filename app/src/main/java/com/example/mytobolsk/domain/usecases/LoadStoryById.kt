@@ -13,7 +13,9 @@ class LoadStoryByIdImpl : LoadStoryById {
         return Story(
             id = id,
             title = response.title,
-            describe = response.describe
+            describe = response.describe,
+            date = response.date,
+            time = response.time
         )
     }
 }

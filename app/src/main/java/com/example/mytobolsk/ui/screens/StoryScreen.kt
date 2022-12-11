@@ -21,31 +21,38 @@ class StoryScreen : Fragment(R.layout.fragment__story_screen) {
             findNavController().popBackStack()
         }
         storyScreenViewModel.fetchStory(requireArguments().getInt("storyId"))
-        binding.toolbar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.item__share_story -> {
-                    val intent = Intent()
-                    intent.action = Intent.ACTION_SEND
-                    intent.putExtra(Intent.EXTRA_TEXT, "История из жизни Твоего Тобольска")
-                    intent.type="text/plain"
-                    startActivity(Intent.createChooser(intent, "Кому отправить:"))
-                    true
-                }
-                else -> { false }
-            }
-        }
         storyScreenViewModel.uiState.observe(viewLifecycleOwner) { newState ->
             when (newState) {
                 StoryScreenUiState.Error -> {
                     Toast.makeText(
-                        requireContext(),
-                        "Ошибка загрузки",
-                        Toast.LENGTH_LONG
+                        requireContext(), "Ошибка загрузки", Toast.LENGTH_LONG
                     ).show()
                 }
                 StoryScreenUiState.Loading -> {}
                 is StoryScreenUiState.Content -> {
+                    binding.storyTitle.text = newState.title
                     binding.storyDescribe.text = newState.describe
+                    binding.toolbar.setOnMenuItemClickListener {
+                        when (it.itemId) {
+                            R.id.item__share_story -> {
+                                val intent = Intent()
+                                intent.action = Intent.ACTION_SEND
+                                intent.putExtra(
+                                    Intent.EXTRA_TEXT,
+                                    "История из жизни Твоего Тобольска." +
+                                            "\n\n${newState.title}" +
+                                            "\n\n${newState.describe}" +
+                                            "\n\nПрисоединйся к своему городу!"
+                                )
+                                intent.type = "text/plain"
+                                startActivity(Intent.createChooser(intent, "Кому отправить:"))
+                                true
+                            }
+                            else -> {
+                                false
+                            }
+                        }
+                    }
                 }
             }
         }
