@@ -13,6 +13,9 @@
     <string name="where">Где: %s</string>
     <string name="when">Когда: %s, %s</string>
     <string name="show_all">Показать все</string>
-    <string name="next">Продолжить</string>
+    <string name="sign_in">Войти</string>
     <string name="share">Поделиться</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="dont_have_account">Ещё нет аккаунта?</string>
+    <string name="have_account">Уже есть аккаунт?</string>
 </resources>

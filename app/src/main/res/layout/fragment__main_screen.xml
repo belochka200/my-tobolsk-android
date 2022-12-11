@@ -15,8 +15,7 @@
             android:layout_height="wrap_content"
             app:menu="@menu/toolbar_menu"
             app:title="@string/app_name"
-            app:titleCentered="true"
-            tools:title="@string/app_name" />
+            app:titleCentered="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -30,6 +29,7 @@
             android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -46,11 +46,31 @@
                     app:showAnimationBehavior="outward"
                     tools:visibility="visible" />
 
-                <TextView
-                    android:id="@+id/heading_useful"
-                    style="@style/headline"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/medium_indent"
-                    android:text="@string/useful" />
+                    android:layout_marginBottom="@dimen/small_indent">
+
+                    <TextView
+                        android:id="@+id/heading_useful"
+                        style="@style/TextAppearance.MyTobolsk.HeadlineMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/show_all_useful_button"
+                        android:text="@string/useful" />
+
+                    <Button
+                        android:id="@+id/show_all_useful_button"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/show_all" />
+
+                </RelativeLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view__stories"
@@ -60,33 +80,33 @@
                     android:layoutAnimation="@anim/recyclerview_layout_animation"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item__story_item" />
+                    tools:listitem="@layout/item__story_card" />
 
-                <FrameLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/medium_indent"
-                    android:layout_marginBottom="@dimen/small_indent"
-                    android:orientation="horizontal">
+                    android:layout_marginBottom="@dimen/small_indent">
 
                     <TextView
                         android:id="@+id/heading_events"
+                        style="@style/TextAppearance.MyTobolsk.HeadlineMedium"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/open_sans_bold"
-                        android:text="@string/events"
-                        android:textSize="24sp" />
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/show_all_events_button"
+                        android:text="@string/events" />
 
                     <Button
                         android:id="@+id/show_all_events_button"
                         style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end|center"
+                        android:layout_alignParentEnd="true"
                         android:text="@string/show_all" />
 
-                </FrameLayout>
+                </RelativeLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view__events"
@@ -98,31 +118,31 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item__event_card" />
 
-                <FrameLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/medium_indent"
-                    android:layout_marginBottom="@dimen/small_indent"
-                    android:orientation="horizontal">
+                    android:layout_marginBottom="@dimen/small_indent">
 
                     <TextView
                         android:id="@+id/heading_routes"
+                        style="@style/TextAppearance.MyTobolsk.HeadlineMedium"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/open_sans_bold"
-                        android:text="@string/routes"
-                        android:textSize="24sp" />
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/show_all_routes_button"
+                        android:text="@string/routes" />
 
                     <Button
                         android:id="@+id/show_all_routes_button"
                         style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end|center"
+                        android:layout_alignParentEnd="true"
                         android:text="@string/show_all" />
 
-                </FrameLayout>
+                </RelativeLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view__routes"
@@ -134,31 +154,31 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item__route_card" />
 
-                <FrameLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/medium_indent"
-                    android:layout_marginBottom="@dimen/small_indent"
-                    android:orientation="horizontal">
+                    android:layout_marginBottom="@dimen/small_indent">
 
                     <TextView
                         android:id="@+id/heading_interesting_places"
+                        style="@style/TextAppearance.MyTobolsk.HeadlineMedium"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/open_sans_bold"
-                        android:text="@string/interests_places"
-                        android:textSize="24sp" />
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/show_all_interesting_places_button"
+                        android:text="@string/interests_places" />
 
                     <Button
                         android:id="@+id/show_all_interesting_places_button"
                         style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end|center"
+                        android:layout_alignParentEnd="true"
                         android:text="@string/show_all" />
 
-                </FrameLayout>
+                </RelativeLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view__interesting"
@@ -175,6 +195,5 @@
         </androidx.core.widget.NestedScrollView>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

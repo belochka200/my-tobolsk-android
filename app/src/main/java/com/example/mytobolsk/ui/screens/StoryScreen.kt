@@ -32,6 +32,12 @@ class StoryScreen : Fragment(R.layout.fragment__story_screen) {
                 is StoryScreenUiState.Content -> {
                     binding.storyTitle.text = newState.title
                     binding.storyDescribe.text = newState.describe
+                    binding.storyShowAllTextButton.setOnClickListener {
+                        StoryDetailModalBottomSheet(newState.title, newState.describe).show(
+                            requireActivity().supportFragmentManager,
+                            StoryDetailModalBottomSheet.TAG
+                        )
+                    }
                     binding.toolbar.setOnMenuItemClickListener {
                         when (it.itemId) {
                             R.id.item__share_story -> {

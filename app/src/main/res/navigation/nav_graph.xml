@@ -12,7 +12,7 @@
         android:label="Твой Тобольск" >
         <action
             android:id="@+id/action_mainScreen_to_loginScreen"
-            app:destination="@id/loginScreen"
+            app:destination="@id/signInScreen"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
@@ -33,10 +33,20 @@
             app:destination="@id/storyScreen" />
     </fragment>
     <fragment
-        tools:layout="@layout/fragment__login_screen"
-        android:id="@+id/loginScreen"
-        android:name="com.example.mytobolsk.ui.screens.LoginScreen"
-        android:label="Аккаунт" />
+        tools:layout="@layout/fragment__sign_in_screen"
+        android:id="@+id/signInScreen"
+        android:name="com.example.mytobolsk.ui.screens.SignInScreen"
+        android:label="Аккаунт" >
+        <action
+            android:id="@+id/action_signInScreen_to_signUpScreen"
+            app:destination="@id/signUpScreen"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/signUpScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         tools:layout="@layout/fragment__detail_event_screen"
         android:id="@+id/eventDetailScreen"
@@ -47,8 +57,23 @@
         android:id="@+id/storyScreen"
         android:name="com.example.mytobolsk.ui.screens.StoryScreen"
         android:label="StoryScreen" >
-        <argument android:name="storyId"
-            app:argType="integer"
-            android:defaultValue="-1" />
+<!--        <argument android:name="storyId"-->
+<!--            app:argType="integer"-->
+<!--            android:defaultValue="-1" />-->
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment__sign_up_screen"
+        android:id="@+id/signUpScreen"
+        android:name="com.example.mytobolsk.ui.screens.SignUpScreen"
+        android:label="SignUpScreen" >
+        <action
+            android:id="@+id/action_signUpScreen_to_signInScreen"
+            app:destination="@id/signInScreen"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/signInScreen"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

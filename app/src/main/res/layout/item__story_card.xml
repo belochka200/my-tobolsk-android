@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="125dp"
     android:layout_height="175dp"
@@ -10,6 +11,7 @@
         android:layout_height="match_parent">
 
         <TextView
+            tools:text="История"
             android:id="@+id/item__story_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

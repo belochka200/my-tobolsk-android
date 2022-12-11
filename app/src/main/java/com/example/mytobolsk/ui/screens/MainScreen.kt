@@ -100,9 +100,9 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
             showAllEventsButton.isVisible = show
             showAllRoutesButton.isVisible = show
             showAllInterestingPlacesButton.isVisible = show
+            showAllUsefulButton.isVisible = show
 
             progressHorizontalBar.isVisible = !show
-//            swipeToRefresh.isRefreshing = !show
         }
         if (show && stories != null) {
             binding.apply {

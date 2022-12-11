@@ -25,13 +25,13 @@ interface Api {
     @GET("events")
     suspend fun loadAllEvents(): List<Event>
 
-    @GET("all stories")
-    suspend fun loadAllStories(): List<Story>
-
     @GET("routes")
     suspend fun loadAllRoutes(): List<Route>
 
-    @GET("all stories/{id}")
+    @GET("stories/today")
+    suspend fun loadAllStories(): List<Story>
+
+    @GET("stories/{id}")
     suspend fun loadStoryById(@Path("id") id: Int): Story
 }
 

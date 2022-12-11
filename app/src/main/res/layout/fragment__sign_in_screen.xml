@@ -20,11 +20,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-<!--    <androidx.compose.ui.platform.ComposeView-->
-<!--        android:id="@+id/compose"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,32 +31,13 @@
             android:orientation="vertical">
 
             <TextView
+                style="@style/TextAppearance.MyTobolsk.HeadlineLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/medium_indent"
                 android:layout_marginTop="@dimen/large_indent"
-                android:fontFamily="@font/open_sans_bold"
                 android:text="@string/your_tobolsk"
-                android:textAlignment="center"
-                android:textSize="32sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/medium_indent"
-                android:layout_marginTop="@dimen/medium_indent"
-                android:fontFamily="@font/open_sans"
-                android:text="Войди, чтобы пользоваться всеми возможностями Тобольска!"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/medium_indent"
-                android:layout_marginTop="@dimen/medium_indent"
-                android:fontFamily="@font/open_sans"
-                android:text="Если аккаунта ещё нет, то он автоматически создастся"
-                android:textSize="18sp" />
+                android:textAlignment="center" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -101,9 +77,31 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/medium_indent">
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dont_have_account"/>
+
+                <Button
+                    android:id="@+id/to_sign_up_button"
+                    android:layout_gravity="end"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sign_up" />
+
+            </FrameLayout>
+
         </LinearLayout>
 
         <Button
+            android:id="@+id/sign_in_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -111,7 +109,7 @@
             android:layout_marginTop="@dimen/medium_indent"
             android:layout_marginEnd="@dimen/medium_indent"
             android:layout_marginBottom="@dimen/medium_indent"
-            android:text="@string/next" />
+            android:text="@string/sign_in" />
 
     </RelativeLayout>
 
