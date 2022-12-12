@@ -45,7 +45,8 @@ class MainScreenViewModel : ViewModel() {
                         title = it.title,
                         describe = it.describe,
                         date = it.date,
-                        time = it.time
+                        time = it.time,
+                        image = it.image
                     )
                 }
                 val routes: List<Route> = LoadMainScreenImpl().getAllRoutes().map {

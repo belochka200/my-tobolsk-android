@@ -6,5 +6,6 @@ sealed class StoryScreenUiState {
     data class Content(
         val title: String,
         val describe: String,
+        val image: String,
     ) : StoryScreenUiState()
 }

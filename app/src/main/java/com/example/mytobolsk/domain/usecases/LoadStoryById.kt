@@ -15,7 +15,8 @@ class LoadStoryByIdImpl : LoadStoryById {
             title = response.title,
             describe = response.describe,
             date = response.date,
-            time = response.time
+            time = response.time,
+            image = response.image
         )
     }
 }

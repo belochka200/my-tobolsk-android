@@ -16,6 +16,7 @@ private const val BASE_URL = "http://192.168.1.137:8000/api/v${API_VERSION}/"
 val moshi: Moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
+
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .baseUrl(BASE_URL)

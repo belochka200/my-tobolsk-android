@@ -3,6 +3,7 @@ package com.example.mytobolsk.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.mytobolsk.databinding.ItemStoryCardBinding
 import com.example.mytobolsk.ui.models.Story
 
@@ -26,6 +27,9 @@ class StoriesAdapter(
             with(binding) {
                 with(storyDataSet[position]) {
                     itemStoryTitle.text = title
+                    itemStoryImage.load(storyDataSet[position].image) {
+                        crossfade(500)
+                    }
                 }
             }
         }

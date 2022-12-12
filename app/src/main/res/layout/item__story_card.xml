@@ -10,16 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/item__story_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@tools:sample/avatars"
+            android:scaleType="centerCrop"/>
+
         <TextView
+            android:padding="@dimen/small_indent"
+            android:background="?attr/colorSurface"
             tools:text="История"
             android:id="@+id/item__story_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="@dimen/small_indent"
-            android:layout_marginTop="@dimen/small_indent"
-            android:layout_marginEnd="@dimen/small_indent"
-            android:layout_marginBottom="@dimen/small_indent" />
+            android:textColor="?attr/colorOnSurface"
+            android:layout_alignParentBottom="true" />
 
     </RelativeLayout>
 

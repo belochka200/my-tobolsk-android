@@ -24,6 +24,7 @@
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"
+
                 tools:src="@tools:sample/avatars" />
 
             <ImageButton
@@ -47,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_indent"
             android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+
             tools:text="@tools:sample/lorem" />
 
         <TextView

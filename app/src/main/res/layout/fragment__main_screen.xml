@@ -44,6 +44,7 @@
                     app:hideAnimationBehavior="inward"
                     app:indeterminateAnimationType="disjoint"
                     app:showAnimationBehavior="outward"
+
                     tools:visibility="visible" />
 
                 <RelativeLayout
@@ -80,6 +81,7 @@
                     android:layoutAnimation="@anim/recyclerview_layout_animation"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
                     tools:listitem="@layout/item__story_card" />
 
                 <RelativeLayout
@@ -116,6 +118,7 @@
                     android:layoutAnimation="@anim/recyclerview_layout_animation"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
                     tools:listitem="@layout/item__event_card" />
 
                 <RelativeLayout
@@ -152,6 +155,7 @@
                     android:layoutAnimation="@anim/recyclerview_layout_animation"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
                     tools:listitem="@layout/item__route_card" />
 
                 <RelativeLayout
@@ -188,6 +192,7 @@
                     android:layoutAnimation="@anim/recyclerview_layout_animation"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
                     tools:listitem="@layout/item__interesting_places_card" />
 
             </LinearLayout>

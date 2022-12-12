@@ -22,6 +22,7 @@ class StoryScreenViewModel : ViewModel() {
                 _uiState.postValue(StoryScreenUiState.Content(
                     title = story.title,
                     describe = story.describe,
+                    image = story.image
                 ))
             } catch (_: Exception) {
                 _uiState.postValue(StoryScreenUiState.Error)

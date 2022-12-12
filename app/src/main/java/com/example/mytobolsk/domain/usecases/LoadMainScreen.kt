@@ -1,5 +1,6 @@
 package com.example.mytobolsk.domain.usecases
 
+import android.util.Log
 import com.example.mytobolsk.data.network.ApiImpl
 import com.example.mytobolsk.domain.models.Event
 import com.example.mytobolsk.domain.models.Route
@@ -35,9 +36,15 @@ class LoadMainScreenImpl : LoadMainScreen {
     }
 
     override suspend fun getAllStories(): List<Story> {
+        Log.d("API", ApiImpl.retrofitService.loadAllStories().toString())
         return ApiImpl.retrofitService.loadAllStories().map {
             Story(
-                id = it.id, title = it.title, describe = it.describe, date = it.date, time = it.time
+                id = it.id,
+                title = it.title,
+                describe = it.describe,
+                date = it.date,
+                time = it.time,
+                image = it.image
             )
         }
     }
