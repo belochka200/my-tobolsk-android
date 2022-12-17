@@ -73,6 +73,15 @@
 
                 </RelativeLayout>
 
+                <TextView
+                    android:id="@+id/text_view_stories_not_show"
+                    style="@style/TextAppearance.Material3.HeadlineSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/medium_indent"
+                    android:layout_marginBottom="@dimen/large_indent"
+                    android:text="Ничего полезного нет" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view__stories"
                     android:layout_width="match_parent"
@@ -109,6 +118,15 @@
                         android:text="@string/show_all" />
 
                 </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text_view_events_not_show"
+                    style="@style/TextAppearance.Material3.HeadlineSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/medium_indent"
+                    android:layout_marginBottom="@dimen/large_indent"
+                    android:text="В ближайшее время мероприятий нет" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view__events"

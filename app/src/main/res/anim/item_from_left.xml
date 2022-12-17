@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- duration = 250 * 2 -->
     <translate
-        android:duration="500"
+        android:duration="@integer/duration_translate_slow"
         android:fromXDelta="-100%"
         android:toXDelta="0" />
 
-    <!-- duration = 300*2 -->
     <alpha
-        android:duration="600"
+        android:duration="@integer/duration_alpha_slow"
         android:fromAlpha="0"
         android:toAlpha="1" />
 </set>

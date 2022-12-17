@@ -62,16 +62,16 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
                     ).show()
                     showContent(
                         show = false,
-                        stories = null,
-                        routes = null,
-                        events = null
+                        stories = emptyList(),
+                        routes = emptyList(),
+                        events = emptyList()
                     )
                 }
                 MainScreenUiState.Loading -> showContent(
                     show = false,
-                    stories = null,
-                    routes = null,
-                    events = null
+                    stories = emptyList(),
+                    routes = emptyList(),
+                    events = emptyList()
                 )
                 is MainScreenUiState.Content -> showContent(
                     show = true,
@@ -85,45 +85,42 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
 
     private fun showContent(
         show: Boolean,
-        stories: List<Story>?,
-        routes: List<Route>?,
-        events: List<Event>?
+        stories: List<Story>,
+        routes: List<Route>,
+        events: List<Event>
     ) {
-        binding.apply {
+        with(binding) {
             headingEvents.isVisible = show
             headingInterestingPlaces.isVisible = show
             headingRoutes.isVisible = show
             headingUseful.isVisible = show
-            recyclerViewStories.isVisible = show
-            recyclerViewEvents.isVisible = show
-            recyclerViewRoutes.isVisible = show
-            showAllEventsButton.isVisible = show
-            showAllRoutesButton.isVisible = show
+
+            recyclerViewEvents.isVisible = events.isNotEmpty() && show
+            recyclerViewEvents.adapter =
+                if (events.isNotEmpty() && show) EventsAdapter(events) { showEvent(it) } else null
+            recyclerViewEvents.adapter?.stateRestorationPolicy =
+                RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+            textViewEventsNotShow.isVisible = events.isEmpty() && show
+
+            recyclerViewRoutes.isVisible = routes.isNotEmpty() && show
+            recyclerViewRoutes.adapter =
+                if (routes.isNotEmpty() && show) RoutesAdapter(routes) else null
+            recyclerViewRoutes.adapter?.stateRestorationPolicy =
+                RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+
+            recyclerViewStories.isVisible = stories.isNotEmpty() && show
+            recyclerViewStories.adapter =
+                if (stories.isNotEmpty() && show) StoriesAdapter(stories) { story -> showStory(story.id) } else null
+            recyclerViewStories.adapter?.stateRestorationPolicy =
+                RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+            textViewStoriesNotShow.isVisible = stories.isEmpty() && show
+
+            showAllEventsButton.isVisible = events.isNotEmpty() && show
+            showAllRoutesButton.isVisible = routes.isNotEmpty() && show
             showAllInterestingPlacesButton.isVisible = show
-            showAllUsefulButton.isVisible = show
+            showAllUsefulButton.isVisible = stories.isNotEmpty() && show
 
             progressHorizontalBar.isVisible = !show
-        }
-        if (show && stories != null) {
-            binding.apply {
-                recyclerViewStories.adapter = StoriesAdapter(stories) { showStory(it.id) }
-                recyclerViewStories.adapter!!.stateRestorationPolicy =
-                    RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-            }
-        }
-        if (show && events != null) {
-            binding.recyclerViewEvents.adapter = EventsAdapter(
-                events,
-                clickListener = { showEvent(it) },
-//                bookmarked = { bookmarkedEvent(it) }
-            )
-            binding.recyclerViewEvents.adapter!!.stateRestorationPolicy =
-                RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-        }
-        if (show && routes != null) {
-            binding.recyclerViewRoutes.adapter = RoutesAdapter(routes)
-            binding.recyclerViewRoutes.adapter!!.stateRestorationPolicy =
-                RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         }
     }
 
