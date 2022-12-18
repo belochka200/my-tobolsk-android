@@ -1,10 +1,9 @@
 package com.example.mytobolsk.ui.viewmodels
 
+import android.app.Application
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.example.mytobolsk.domain.models.asUiModel
 import com.example.mytobolsk.domain.usecases.LoadMainScreenImpl
 import com.example.mytobolsk.ui.models.Event
 import com.example.mytobolsk.ui.models.Route
@@ -14,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class MainScreenViewModel : ViewModel() {
+class MainScreenViewModel(application: Application) : AndroidViewModel(application) {
     private val _uiState = MutableLiveData<MainScreenUiState>(MainScreenUiState.Loading)
     val uiState: LiveData<MainScreenUiState> = _uiState
 
@@ -29,33 +28,9 @@ class MainScreenViewModel : ViewModel() {
         _uiState.value = MainScreenUiState.Loading
         job = viewModelScope.launch(Dispatchers.IO) {
             try {
-                val events: List<Event> = LoadMainScreenImpl().getAllEvents().map {
-                    Event(
-                        id = it.id,
-                        title = it.title,
-                        describe = it.describe,
-                        date = it.date,
-                        time = it.time,
-                        place = it.place
-                    )
-                }
-                val stories: List<Story> = LoadMainScreenImpl().getAllStories().map {
-                    Story(
-                        id = it.id,
-                        title = it.title,
-                        describe = it.describe,
-                        date = it.date,
-                        time = it.time,
-                        image = it.image
-                    )
-                }
-                val routes: List<Route> = LoadMainScreenImpl().getAllRoutes().map {
-                    Route(
-                        id = it.id,
-                        title = it.title,
-                        describe = it.describe
-                    )
-                }
+                val events: List<Event> = LoadMainScreenImpl().getAllEvents().asUiModel()
+                val stories: List<Story> = LoadMainScreenImpl().getAllStories().asUiModel()
+                val routes: List<Route> = LoadMainScreenImpl().getAllRoutes().asUiModel()
                 _uiState.postValue(
                     MainScreenUiState.Content(
                         events = events,
@@ -67,6 +42,15 @@ class MainScreenViewModel : ViewModel() {
                 Log.e("Loading API Error", e.toString())
                 _uiState.postValue(MainScreenUiState.Error)
             }
+        }
+    }
+
+    class Factory(val app: Application) : ViewModelProvider.Factory {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(MainScreenViewModel::class.java)) {
+                return MainScreenViewModel(app) as T
+            }
+            throw IllegalArgumentException("Unable to construct viewmodel")
         }
     }
 }
