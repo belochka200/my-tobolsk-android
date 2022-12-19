@@ -28,7 +28,14 @@
         <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
 
-        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+
+        <item name="actionBarSize">@dimen/toolbar_height</item>
+        <item name="collapsingToolbarLayoutLargeSize">@dimen/collapsing_toolbar_layout_large_size
+        </item>
     </style>
 
     <style name="Base.Theme.MyTobolsk" parent="Base.V21.Night.Theme.MyTobolsk" />

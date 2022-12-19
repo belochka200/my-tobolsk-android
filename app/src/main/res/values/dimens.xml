@@ -8,4 +8,7 @@
     <integer name="duration_alpha">250</integer>
     <integer name="duration_translate_slow">400</integer>
     <integer name="duration_alpha_slow">500</integer>
+
+    <dimen name="collapsing_toolbar_layout_large_size">350dp</dimen>
+    <dimen name="toolbar_height">64dp</dimen>
 </resources>
