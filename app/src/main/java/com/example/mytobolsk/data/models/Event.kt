@@ -3,6 +3,7 @@ package com.example.mytobolsk.data.models
 data class Event(
     val id: Int,
     val title: String,
+    val image: String,
     val describe: String,
     val date: String,
     val time: String,
@@ -14,6 +15,7 @@ fun List<Event>.asDomainModel(): List<com.example.mytobolsk.domain.models.Event>
         com.example.mytobolsk.domain.models.Event(
             id = it.id,
             title = it.title,
+            image = it.image,
             describe = it.describe,
             date = it.date,
             time = it.time,

@@ -1,5 +1,4 @@
 <resources>
-    <!-- Base application theme. -->
     <style name="Base.V21.Theme.MyTobolsk" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
@@ -36,6 +35,7 @@
         <item name="actionBarSize">@dimen/toolbar_height</item>
         <item name="collapsingToolbarLayoutLargeSize">@dimen/collapsing_toolbar_layout_large_size
         </item>
+        <item name="toolbarStyle">@style/Widget.MyTobolsk.Toolbar</item>
     </style>
 
     <style name="Base.Theme.MyTobolsk" parent="Base.V21.Theme.MyTobolsk" />

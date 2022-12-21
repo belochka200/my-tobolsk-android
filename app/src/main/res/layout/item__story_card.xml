@@ -11,17 +11,20 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/item__story_image"
+            android:id="@+id/item_story__image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:src="@tools:sample/avatars"
             android:scaleType="centerCrop"/>
 
         <TextView
+            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
             android:padding="@dimen/small_indent"
+            android:maxLines="2"
+            android:ellipsize="end"
             android:background="?attr/colorSurface"
-            tools:text="История"
-            android:id="@+id/item__story_title"
+            tools:text="@tools:sample/lorem/random"
+            android:id="@+id/item_story__title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="?attr/colorOnSurface"

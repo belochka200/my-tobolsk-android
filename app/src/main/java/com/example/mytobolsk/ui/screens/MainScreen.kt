@@ -24,7 +24,6 @@ import com.example.mytobolsk.ui.models.Route
 import com.example.mytobolsk.ui.models.Story
 import com.example.mytobolsk.ui.states.MainScreenUiState
 import com.example.mytobolsk.ui.viewmodels.MainScreenViewModel
-import com.google.android.material.appbar.MaterialToolbar
 
 class MainScreen : Fragment(R.layout.fragment__main_screen) {
 
@@ -39,7 +38,7 @@ class MainScreen : Fragment(R.layout.fragment__main_screen) {
             mainScreenViewModel.fetchData()
             swipeRefreshLayout.isRefreshing = false
         }
-        val toolBar: MaterialToolbar = binding.toolbar
+        val toolBar = binding.toolbar
         ViewCompat.setOnApplyWindowInsetsListener(toolBar) { view, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
             view.updateLayoutParams<MarginLayoutParams> {

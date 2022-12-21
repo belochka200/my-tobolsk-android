@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView android:layout_width="300dp"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/small_indent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_marginHorizontal="@dimen/small_indent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_margin="@dimen/small_indent"
-            android:id="@+id/item_route_card_title"
+        <ImageView
+            android:id="@+id/item_route__image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/item_route__card_title"
+            style="@style/TextAppearance.MyTobolsk.HeadlineSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_indent"
+            android:ellipsize="end"
+            android:maxLines="2"
+            tools:text="@tools:sample/lorem/random" />
 
     </LinearLayout>
 

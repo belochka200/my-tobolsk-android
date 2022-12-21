@@ -14,8 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:menu="@menu/toolbar_menu"
-            app:title="@string/app_name"
-            app:titleCentered="true" />
+            app:title="@string/app_name" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -44,7 +43,6 @@
                     app:hideAnimationBehavior="inward"
                     app:indeterminateAnimationType="disjoint"
                     app:showAnimationBehavior="outward"
-
                     tools:visibility="visible" />
 
                 <RelativeLayout
@@ -90,7 +88,6 @@
                     android:layoutAnimation="@anim/recyclerview_layout_animation"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
                     tools:listitem="@layout/item__story_card" />
 
                 <RelativeLayout
@@ -136,7 +133,6 @@
                     android:layoutAnimation="@anim/recyclerview_layout_animation"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
                     tools:listitem="@layout/item__event_card" />
 
                 <RelativeLayout
@@ -173,7 +169,6 @@
                     android:layoutAnimation="@anim/recyclerview_layout_animation"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
                     tools:listitem="@layout/item__route_card" />
 
                 <RelativeLayout
@@ -210,7 +205,6 @@
                     android:layoutAnimation="@anim/recyclerview_layout_animation"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
                     tools:listitem="@layout/item__interesting_places_card" />
 
             </LinearLayout>

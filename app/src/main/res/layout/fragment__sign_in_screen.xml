@@ -14,8 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_round_arrow_back_ios_new_24"
-            app:title="@string/account"
-            app:titleCentered="true" />
+            app:title="@string/account" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

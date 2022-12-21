@@ -3,6 +3,7 @@ package com.example.mytobolsk.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.mytobolsk.R
 import com.example.mytobolsk.databinding.ItemEventCardBinding
 import com.example.mytobolsk.ui.models.Event
@@ -24,16 +25,16 @@ class EventsAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
-            itemView.setOnClickListener { clickListener(eventsDataset[position]) }
-
             with(eventsDataset[position]) {
-                binding.itemEventCardTitle.text = title
-                binding.itemEventCardPlace.text =
-                    holder.itemView.context.getString(R.string.`where`, place)
-                binding.itemEventCardTime.text =
-                    holder.itemView.context.getString(R.string.`when`, date, time)
-//                binding.checkbox.isChecked = bookmarked
-//                binding.checkbox.setOnClickListener { bookmarked(this) }
+                itemView.setOnClickListener { clickListener(this) }
+                binding.itemEventCardImage.load(this.image) { crossfade(500) }
+                with(binding) {
+                    itemEventCardTitle.text = title
+                    itemEventCardPlace.text =
+                        holder.itemView.context.getString(R.string.`where`, place)
+                    itemEventCardTime.text =
+                        holder.itemView.context.getString(R.string.`when`, date, time)
+                }
             }
         }
     }

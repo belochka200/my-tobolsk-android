@@ -14,8 +14,6 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_round_arrow_back_ios_new_24"
-            app:titleCentered="true"
-
             tools:title="Мероприятие номер 1" />
 
     </com.google.android.material.appbar.AppBarLayout>

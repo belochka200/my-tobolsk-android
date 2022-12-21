@@ -3,8 +3,8 @@ package com.example.mytobolsk.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.mytobolsk.databinding.ItemRouteCardBinding
-import com.example.mytobolsk.ui.models.Event
 import com.example.mytobolsk.ui.models.Route
 
 class RoutesAdapter(private val eventsDataset: List<Route>) :
@@ -22,7 +22,10 @@ class RoutesAdapter(private val eventsDataset: List<Route>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
             with(eventsDataset[position]) {
-                binding.itemRouteCardTitle.text = title
+                with(binding) {
+                    itemRouteCardTitle.text = title
+                    itemRouteImage.load(image) { crossfade(500) }
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="TextAppearance.MyTobolsk.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
         <item name="fontFamily">sans-serif-medium</item>
     </style>
@@ -11,4 +12,10 @@
     <style name="TextAppearance.MyTobolsk.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
         <item name="fontFamily">sans-serif-medium</item>
     </style>
+
+    <style name="Widget.MyTobolsk.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleCentered">true</item>
+        <item name="subtitleCentered">true</item>
+    </style>
+
 </resources>

@@ -9,7 +9,6 @@
         android:id="@+id/mainScreen"
         android:name="com.example.mytobolsk.ui.screens.MainScreen"
         android:label="Твой Тобольск"
-
         tools:layout="@layout/fragment__main_screen">
         <action
             android:id="@+id/action_mainScreen_to_loginScreen"
@@ -37,7 +36,6 @@
         android:id="@+id/signInScreen"
         android:name="com.example.mytobolsk.ui.screens.SignInScreen"
         android:label="Аккаунт"
-
         tools:layout="@layout/fragment__sign_in_screen">
         <action
             android:id="@+id/action_signInScreen_to_signUpScreen"
@@ -53,20 +51,17 @@
         android:id="@+id/eventDetailScreen"
         android:name="com.example.mytobolsk.ui.screens.EventDetailScreen"
         android:label="EventDetailScreen"
-
         tools:layout="@layout/fragment__detail_event_screen" />
     <fragment
         android:id="@+id/storyScreen"
         android:name="com.example.mytobolsk.ui.screens.StoryScreen"
         android:label="StoryScreen"
-
         tools:layout="@layout/fragment__story_screen">
     </fragment>
     <fragment
         android:id="@+id/signUpScreen"
         android:name="com.example.mytobolsk.ui.screens.SignUpScreen"
         android:label="SignUpScreen"
-
         tools:layout="@layout/fragment__sign_up_screen">
         <action
             android:id="@+id/action_signUpScreen_to_signInScreen"
